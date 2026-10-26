@@ -63,7 +63,7 @@ jobs:
         run: |
           set -euo pipefail
           APP_PATH='DerivedData/Build/Products/Release/MacScope.app'
-          /usr/bin/lipo -verify_arch arm64 x86_64 "$APP_PATH/Contents/MacOS/MacScope"
+          /usr/bin/lipo "$APP_PATH/Contents/MacOS/MacScope" -verify_arch arm64 x86_64
           /usr/bin/codesign --force --sign - --options runtime \
             --entitlements MacScope/MacScope.entitlements "$APP_PATH"
           /usr/bin/codesign --verify --deep --strict --verbose=2 "$APP_PATH"
