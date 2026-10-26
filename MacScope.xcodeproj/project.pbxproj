@@ -1,0 +1,48 @@
+// !$*UTF8*$!
+{ archiveVersion = 1; classes = {}; objectVersion = 56; objects = {
+000000000000000000000064 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/MacScopeApp.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000C8 = { isa = PBXBuildFile; fileRef = 000000000000000000000064; };
+000000000000000000000065 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Models/DiagnosticResult.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000C9 = { isa = PBXBuildFile; fileRef = 000000000000000000000065; };
+000000000000000000000066 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Services/SystemScanner.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000CA = { isa = PBXBuildFile; fileRef = 000000000000000000000066; };
+000000000000000000000067 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Services/MonitoringService.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000CB = { isa = PBXBuildFile; fileRef = 000000000000000000000067; };
+000000000000000000000068 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Services/HardwareTests.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000CC = { isa = PBXBuildFile; fileRef = 000000000000000000000068; };
+000000000000000000000069 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Views/DashboardView.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000CD = { isa = PBXBuildFile; fileRef = 000000000000000000000069; };
+00000000000000000000006A = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Views/HardwareView.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000CE = { isa = PBXBuildFile; fileRef = 00000000000000000000006A; };
+00000000000000000000006B = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Views/TestLabView.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000CF = { isa = PBXBuildFile; fileRef = 00000000000000000000006B; };
+00000000000000000000006C = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Views/LogsView.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000D0 = { isa = PBXBuildFile; fileRef = 00000000000000000000006C; };
+00000000000000000000006D = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacScope/Views/ReportView.swift"; sourceTree = SOURCE_ROOT; };
+0000000000000000000000D1 = { isa = PBXBuildFile; fileRef = 00000000000000000000006D; };
+000000000000000000000014 = { isa = PBXFileReference; explicitFileType = wrapper.application; path = MacScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
+000000000000000000000015 = { isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MacScopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+000000000000000000000016 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacScopeTests/DiagnosticLogicTests.swift; sourceTree = SOURCE_ROOT; };
+000000000000000000000017 = { isa = PBXBuildFile; fileRef = 000000000000000000000016; };
+000000000000000000000001 = { isa = PBXProject; attributes = { LastUpgradeCheck = 1600; }; buildConfigurationList = 00000000000000000000001E; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; knownRegions = (en, Base); mainGroup = 000000000000000000000002; productRefGroup = 000000000000000000000003; projectDirPath = ""; projectRoot = ""; targets = (000000000000000000000004, 000000000000000000000005); };
+000000000000000000000002 = { isa = PBXGroup; children = (000000000000000000000064, 000000000000000000000065, 000000000000000000000066, 000000000000000000000067, 000000000000000000000068, 000000000000000000000069, 00000000000000000000006A, 00000000000000000000006B, 00000000000000000000006C, 00000000000000000000006D, 000000000000000000000016, 000000000000000000000003); sourceTree = "<group>"; };
+000000000000000000000003 = { isa = PBXGroup; children = (000000000000000000000014, 000000000000000000000015); name = Products; sourceTree = "<group>"; };
+000000000000000000000004 = { isa = PBXNativeTarget; buildConfigurationList = 00000000000000000000001F; buildPhases = (000000000000000000000006, 000000000000000000000007, 000000000000000000000008); buildRules = (); dependencies = (); name = MacScope; productName = MacScope; productReference = 000000000000000000000014; productType = "com.apple.product-type.application"; };
+000000000000000000000005 = { isa = PBXNativeTarget; buildConfigurationList = 000000000000000000000020; buildPhases = (000000000000000000000009, 00000000000000000000000A); buildRules = (); dependencies = (00000000000000000000000C); name = MacScopeTests; productName = MacScopeTests; productReference = 000000000000000000000015; productType = "com.apple.product-type.bundle.unit-test"; };
+000000000000000000000006 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (0000000000000000000000C8, 0000000000000000000000C9, 0000000000000000000000CA, 0000000000000000000000CB, 0000000000000000000000CC, 0000000000000000000000CD, 0000000000000000000000CE, 0000000000000000000000CF, 0000000000000000000000D0, 0000000000000000000000D1); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000007 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000008 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+00000000000000000000000A = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000009 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000017); runOnlyForDeploymentPostprocessing = 0; };
+00000000000000000000000B = { isa = PBXContainerItemProxy; containerPortal = 000000000000000000000001; proxyType = 1; remoteGlobalIDString = 000000000000000000000004; remoteInfo = MacScope; };
+00000000000000000000000C = { isa = PBXTargetDependency; target = 000000000000000000000004; targetProxy = 00000000000000000000000B; };
+00000000000000000000001E = { isa = XCConfigurationList; buildConfigurations = (000000000000000000000028, 000000000000000000000029); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+00000000000000000000001F = { isa = XCConfigurationList; buildConfigurations = (00000000000000000000002A, 00000000000000000000002B); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+000000000000000000000020 = { isa = XCConfigurationList; buildConfigurations = (00000000000000000000002C, 00000000000000000000002D); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+000000000000000000000028 = { isa = XCBuildConfiguration; buildSettings = { MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CLANG_ENABLE_MODULES = YES; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; ENABLE_TESTABILITY = YES;  }; name = Debug; };
+000000000000000000000029 = { isa = XCBuildConfiguration; buildSettings = { MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CLANG_ENABLE_MODULES = YES; SWIFT_OPTIMIZATION_LEVEL = "-O";  }; name = Release; };
+00000000000000000000002A = { isa = XCBuildConfiguration; buildSettings = { MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CLANG_ENABLE_MODULES = YES; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; ENABLE_TESTABILITY = YES; PRODUCT_BUNDLE_IDENTIFIER = com.macscope.app; PRODUCT_NAME = "$(TARGET_NAME)"; INFOPLIST_FILE = MacScope/Info.plist; CODE_SIGN_STYLE = Automatic; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = YES; CODE_SIGN_ENTITLEMENTS = MacScope/MacScope.entitlements;  }; name = Debug; };
+00000000000000000000002B = { isa = XCBuildConfiguration; buildSettings = { MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CLANG_ENABLE_MODULES = YES; SWIFT_OPTIMIZATION_LEVEL = "-O"; PRODUCT_BUNDLE_IDENTIFIER = com.macscope.app; PRODUCT_NAME = "$(TARGET_NAME)"; INFOPLIST_FILE = MacScope/Info.plist; CODE_SIGN_STYLE = Automatic; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = YES; CODE_SIGN_ENTITLEMENTS = MacScope/MacScope.entitlements;  }; name = Release; };
+00000000000000000000002C = { isa = XCBuildConfiguration; buildSettings = { MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CLANG_ENABLE_MODULES = YES; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; ENABLE_TESTABILITY = YES; PRODUCT_BUNDLE_IDENTIFIER = com.macscope.tests; PRODUCT_NAME = "$(TARGET_NAME)"; GENERATE_INFOPLIST_FILE = YES; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacScope.app/Contents/MacOS/MacScope"; BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic;  }; name = Debug; };
+00000000000000000000002D = { isa = XCBuildConfiguration; buildSettings = { MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CLANG_ENABLE_MODULES = YES; SWIFT_OPTIMIZATION_LEVEL = "-O"; PRODUCT_BUNDLE_IDENTIFIER = com.macscope.tests; PRODUCT_NAME = "$(TARGET_NAME)"; GENERATE_INFOPLIST_FILE = YES; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacScope.app/Contents/MacOS/MacScope"; BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic;  }; name = Release; };
+}; rootObject = 000000000000000000000001; }

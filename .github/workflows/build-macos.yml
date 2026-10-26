@@ -1,0 +1,90 @@
+name: Build MacScope for macOS
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'MacScope/**'
+      - 'MacScopeTests/**'
+      - 'MacScope.xcodeproj/**'
+      - '.github/workflows/build-macos.yml'
+  pull_request:
+    paths:
+      - 'MacScope/**'
+      - 'MacScopeTests/**'
+      - 'MacScope.xcodeproj/**'
+      - '.github/workflows/build-macos.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: macscope-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15-intel
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Run focused logic tests
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project MacScope.xcodeproj \
+            -scheme MacScope \
+            -configuration Debug \
+            -destination 'platform=macOS,arch=x86_64' \
+            -derivedDataPath DerivedData \
+            -resultBundlePath TestResults.xcresult \
+            -only-testing:MacScopeTests/DiagnosticLogicTests \
+            CODE_SIGNING_ALLOWED=NO test
+
+      - name: Build universal release
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project MacScope.xcodeproj \
+            -scheme MacScope \
+            -configuration Release \
+            -destination 'generic/platform=macOS' \
+            -derivedDataPath DerivedData \
+            ARCHS='arm64 x86_64' ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO build
+
+      - name: Sign locally and package application
+        run: |
+          set -euo pipefail
+          APP_PATH='DerivedData/Build/Products/Release/MacScope.app'
+          /usr/bin/lipo -verify_arch arm64 x86_64 "$APP_PATH/Contents/MacOS/MacScope"
+          /usr/bin/codesign --force --sign - --options runtime \
+            --entitlements MacScope/MacScope.entitlements "$APP_PATH"
+          /usr/bin/codesign --verify --deep --strict --verbose=2 "$APP_PATH"
+          mkdir -p dist
+          /usr/bin/ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" dist/MacScope-macOS.zip
+          /usr/bin/shasum -a 256 dist/MacScope-macOS.zip > dist/SHA256SUMS.txt
+          cp README.md dist/README.md
+
+      - name: Upload application
+        uses: actions/upload-artifact@v4
+        with:
+          name: MacScope-macOS
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MacScope-test-results
+          path: TestResults.xcresult
+          if-no-files-found: ignore
+          retention-days: 7
